@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch05/table.html</title>
+</head>
+
+<body>
+    <table id = "tbl" border="1">
+        <!-- <tr>
+            <th>아이디</th>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button>전송</button>
+                <button>취소</button>
+            </td>
+        </tr> -->
+    </table>
+
+    <br><br><br>
+
+    <script>
+        let tableTag = document.getElementById("tbl");
+        let trTag = document.createElement("tr");
+        let tdTag = document.createElement("td");
+        let input = document.createElement("input");
+        let btn = document.createElement("button");
+
+        tableTag.appendChild(trTag);
+        trTag.appendChild(tdTag);
+        let text = document.createTextNode("아이디");
+        tdTag.appendChild(text);
+        tdTag = document.createElement("td");
+        trTag.appendChild(tdTag);
+       
+        tdTag.appendChild(input);
+   
+
+        trTag = document.createElement("tr");
+        tdTag = document.createElement("td");
+        tableTag.appendChild(trTag);
+        trTag.appendChild(tdTag);
+        text = document.createTextNode("비밀번호");
+        tdTag.appendChild(text);
+        tdTag = document.createElement("td");
+        trTag.appendChild(tdTag);
+        input = document.createElement("input");
+        tdTag.appendChild(input);
+        input.setAttribute("type", "password")
+
+        trTag = document.createElement("tr");
+        tdTag = document.createElement("td");
+        tableTag.appendChild(trTag);
+        trTag.appendChild(tdTag);
+        tdTag.setAttribute("colspan", "2");
+        tdTag.setAttribute("align", "CENTER");
+        tdTag.appendChild(btn);
+        text = document.createTextNode("전송");
+        btn.appendChild(text);
+        btn.style = "margin: 0px 20px"
+        btn = document.createElement("button");
+        tdTag.appendChild(btn);
+        text = document.createTextNode("취소");
+        btn.appendChild(text);
+
+
+        // let liTag = document.createElement("li"); //tag 만들기
+        // let text = document.createTextNode("홍길동");  //text 만들기       
+        // liTag.appendChild(text);
+        // let ulTag = document.getElementById("name");
+        // ulTag.appendChild(liTag);
+
+    </script>
+
+
+
+
+</body>
+
+</html>

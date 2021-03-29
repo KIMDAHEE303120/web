@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let scores = [
+            ["홍길동", "80"],
+            ["김민수", "85"],
+            ["박민규", "90"]
+        ]
+        
+        let tbl = document.createElement("table");
+        tbl.setAttribute("border", "1");
+        tbl.setAttribute("id", "tbl");
+        let trTag, tdTag, text;
+        trTag = document.createElement("tr");
+        tdTag = document.createElement("td");
+       
+
+        for (let i =0; i<scores.length; i++){
+            text = document.createTextNode(scores[i][0]);
+        }
+
+
+
+    </script>
+</body>
+</html>

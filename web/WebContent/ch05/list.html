@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch05/list.html</title>
+</head>
+
+<body>
+    <ul>Fruits
+        <li>Apple</li> 
+        <li>Banana</li>
+        <li>Melon</li>
+    </ul>
+
+    <br><br><br>
+    <ul id="fruit"> </ul>
+    <button>클릭</button>
+    <script>
+        let liTag = document.createElement("li"); //tag 만들때 
+        let text = document.createTextNode("Apple"); //텍스트 값을 생성 
+        liTag.appendChild(text); //li테그를 만들고 apple을 넣음 <li>Apple</li>
+        let ulTag = document.getElementById("fruit");
+        ulTag.appendChild(liTag); //ul테그의 하위요소로 넣겠다는 의미  <ul><li>Apple</li></ul>
+
+        liTag = document.createElement("li");
+        text = document.createTextNode("Banana");
+        liTag.appendChild(text); // <li>Banana</li>
+        ulTag.appendChild(liTag); // <ul><li>Apple</li>
+                                //   <li>Banana</li></ul>
+
+        liTag = document.createElement("li");
+        text = document.createTextNode("Melon");
+        liTag.appendChild(text);
+        ulTag.appendChild(liTag);
+
+        let btn = document.createElement("button");
+        
+
+    </script>
+
+</body>
+
+</html>
