@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="bdy">
     <script>
         let scores = [
             ["홍길동", "80"],
@@ -13,6 +13,7 @@
             ["박민규", "90"]
         ]
         
+        let bdy = document.getElementById("bdy");
         let tbl = document.createElement("table");
         tbl.setAttribute("border", "1");
         tbl.setAttribute("id", "tbl");
@@ -23,6 +24,15 @@
 
         for (let i =0; i<scores.length; i++){
             text = document.createTextNode(scores[i][0]);
+            tbl.appendChild(trTag);
+            trTag.appendChild(tdTag);
+            tdTag.appendChild(text);    
+
+            for (let j=0; j<scores.length; j++){
+                text = document.createTextNode(scores[j][0]);
+                tbl.appendChild(text);
+
+            }
         }
 
 

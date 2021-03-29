@@ -20,13 +20,14 @@
 	<% String[] subject = request.getParameterValues("subject"); 
 		for(int i = 0; i <subject.length; i++) {
 		String selectSubject = subject[i]; %>
-		<h2><%=selectSubject %></h2>
+		 <%=selectSubject %> /
 	<%} %>
 	
+	<h2> 취미: 
 	<% String[] hobby = request.getParameterValues("hobby"); 
 	for(int i = 0; i<hobby.length; i++){
 		String selectHobby = hobby[i]; %>
-		<h2>취미:<%=selectHobby %></h2>
+		<%=selectHobby %> /
 
 	
 	<%} %>
