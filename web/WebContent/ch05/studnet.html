@@ -3,38 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student</title>
 </head>
 <body id="bdy">
     <script>
         let scores = [
             ["홍길동", "80"],
             ["김민수", "85"],
+            ["김길동", "85"],
+            ["김민규", "85"],
             ["박민규", "90"]
-        ]
-        
-        let bdy = document.getElementById("bdy");
+        ];
+        let trTag, tdTag, thTag, text;
+
         let tbl = document.createElement("table");
         tbl.setAttribute("border", "1");
         tbl.setAttribute("id", "tbl");
-        let trTag, tdTag, text;
+        let bdy = document.getElementById("bdy");
+        bdy.appendChild(tbl);
+
         trTag = document.createElement("tr");
-        tdTag = document.createElement("td");
-       
+        thTag = document.createElement("th");
+        text = document.createTextNode("이름");
+        thTag.appendChild(text);
+        trTag.appendChild(thTag);
+        tbl.appendChild(trTag);
 
-        for (let i =0; i<scores.length; i++){
+        thTag = document.createElement("th");
+        text = document.createTextNode("성적");
+        thTag.appendChild(text);
+        trTag.appendChild(thTag);
+        tbl.appendChild(trTag);
+
+        for (let i = 0; i < scores.length; i++) {
+
+            trTag = document.createElement("tr");
+            tdTag = document.createElement("td");
             text = document.createTextNode(scores[i][0]);
-            tbl.appendChild(trTag);
+            tdTag.appendChild(text);
             trTag.appendChild(tdTag);
-            tdTag.appendChild(text);    
+            tbl.appendChild(trTag);
 
-            for (let j=0; j<scores.length; j++){
-                text = document.createTextNode(scores[j][0]);
-                tbl.appendChild(text);
-
-            }
+            tdTag = document.createElement("td");
+            text = document.createTextNode(scores[i][1]);
+            tdTag.appendChild(text);
+            trTag.appendChild(tdTag);
+            tbl.appendChild(trTag);
         }
 
+        trTag = document.createElement("tr");
+        thTag = document.createElement("th");
+        text = document.createTextNode("평균");
+        thTag.appendChild(text);
+        trTag.appendChild(thTag);
+        tbl.appendChild(trTag);
+
+        thTag = document.createElement("th");
+        trTag.appendChild(thTag);
+        tbl.appendChild(trTag);
 
 
     </script>
