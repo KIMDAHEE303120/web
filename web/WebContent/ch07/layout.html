@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch07/layout.html</title>
+    <style>
+        * {
+            /* border: 1px solid gray;; */
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 5px;
+            
+        }
+        body {
+            border: dotted;
+        }
+        header.container {
+            border: 1px solid gray;;
+            background-color: rgb(253, 241, 186);
+            height: 10vh;
+            margin: 1%;
+        }
+        .item {
+            border: 1px solid gray;;
+            background-color: rgb(211, 240, 178);
+        }
+        nav, section, aside {
+            border: 1px solid gray;
+            background-color: rgb(180, 236, 96);
+            margin: 1% 1%;
+        }
+        nav {
+            width: 23%; height: 50vh;
+            float: left;            
+        }
+        section {
+            width: 48%; height: 50vh;
+            float: left;
+        }
+        section > header, article, footer{
+            border: 1px solid gray;;
+            background-color: rgb(211, 240, 178);
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+        section>header {
+            margin-top: 10%;
+        }
+        section>article {
+            margin-top: 5%;
+            height: 150px;
+        }
+        section> footer {
+            margin-top: 5%;
+        }
+        aside{
+            width: 23%; height: 50vh;
+            float: right;
+        }
+        footer.container {
+            border: 1px solid gray;;
+            background-color: rgb(255, 214, 81);
+            height: 30px;
+            clear: left;  
+            margin: 1%;          
+        }
+        ul{
+            border-width: 0px;
+        }
+        ul > li {
+            display: inline;
+            border-width: 0px;
+            
+        }
+        ul>li>a{
+            border-width: 0px;
+        }
+        ol{
+            border-width: 0px;
+            
+        }
+        ol>li {
+            border-width: 0px;
+            font-size: 20px;                    
+        }
+        ol>li>a {
+            border-width: 0px;
+                       
+        }
+
+    </style>
+</head>
+<body>
+    <header class="container">
+        <!-- &lt;header&gt; -->
+        <ul>
+            <li><a href="wwww.naver.com">주제1</a></li>
+            <li><a href="wwww.daum.net">주제2</a></li>
+            <li><a href="wwww.">주제3</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <!-- &lt;nav&gt; -->
+        <ol>
+            <li><a href="wwww.naver.com">menu1</a></li>
+            <li><a href="wwww.daum.net">menu2</a></li>
+            <li><a href="wwww.">menu3</a></li>
+            <li><a href="wwww.">menu4</a></li>
+            <li><a href="wwww.">menu5</a></li>
+        </ol>
+    </nav>
+
+    <section>
+        &lt;section&gt;
+        <header class="item">
+            &lt;header&gt;
+        </header>
+        <article>
+            &lt;article&gt;
+        </article>
+        <footer>
+            &lt;footer&gt;
+        </footer>
+    </section>
+
+    <aside>
+        &lt;aside&gt;
+    </aside>
+
+    <footer class="container">
+        &lt;footer&gt;
+    </footer>
+</body>
+</html>

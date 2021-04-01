@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch07/info.html</title>
+    <style>
+        div {
+            margin-left: 5%;
+        }
+
+        select {
+            width: 100px;
+            height: 25px;
+        }
+
+        nav {
+            display: inline-block;
+            width: 120px;
+            position: relative;
+            height: 30px;
+        }
+
+        section {
+            width: 700px;
+            display: inline-block;
+            
+        }
+
+        section.checkbox {
+            /* margin-left: 15px; */
+        }
+
+        button {
+            background-color: rgb(9, 211, 184);
+            color: white;
+            border: 0px;
+            height: 30px;
+
+        }
+
+
+        input {
+            border: 1px solid gray;
+            height: 20px;
+        }
+
+        a {
+            font-size: 12px;
+            color: gray;
+        }
+
+        a.bottom {
+            font-size: 12px;
+            color: gray;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>회원정보(필수)</h3>
+    <br>
+
+    <div>
+        <nav>아이디</nav>
+        <section>
+            <input type="text" value="4자리 이상">
+            <button>아이디중복확인</button>
+        </section>
+    </div>
+    <br>
+
+    <div>
+
+        <nav>비밀번호</nav>
+        <section>
+            <input type="password"> <a> 8~20자리의 영문, 숫자 조합(영문, 숫자, 특수기호 조합을 권장합니다.)</a>
+        </section>
+    </div>
+    <br>
+
+    <div>
+        <nav>비밀번호 확인</nav>
+        <section>
+            <input type="password">
+        </section>
+
+    </div>
+    <br>
+
+    <div>
+        <nav>이름 </nav>
+        <section>
+            <input type="text">
+        </section>
+    </div>
+    <br>
+
+    <div>
+        <nav>성별 </nav>
+        <section>
+            <input type="radio" name="sex" value="male" checked> 남성
+            <input type="radio" name="sex" value="female"> 여성
+        </section>
+    </div>
+    <br>
+
+    <div>
+        <nav>생년월일</nav>
+        <section>
+            <select>
+                <option>선택</option>
+                <option value="1"> 2021 </option>
+                <option value="1"> 2020 </option>
+                <option value="1"> 2019 </option>
+
+            </select>
+            <select>
+                <option>선택</option>
+                <option value="1"> 1 </option>
+                <option value="1"> 2 </option>
+                <option value="1"> 3 </option>
+                <option value="1"> 4 </option>
+                <option value="1"> 5 </option>
+                <option value="1"> 6 </option>
+                <option value="1"> 7 </option>
+            </select>
+            <select>
+                <option>선택</option>
+                <option value="1"> 1 </option>
+                <option value="1"> 2 </option>
+                <option value="1"> 3 </option>
+                <option value="1"> 4 </option>
+                <option value="1"> 5 </option>
+                <option value="1"> 6 </option>
+                <option value="1"> 7 </option>
+            </select>
+            <input type="radio" checked>양력
+            <input type="radio">음력
+        </section>
+
+    </div>
+    <br>
+
+    <div>
+        <nav>이메일</nav>
+        <section>
+            <input type="text"> @ <input type="text">
+            <select>
+                <option>직접입력</option>
+                <option value="google.com"> google.com </option>
+                <option value="naver.com"> naver.com</option>
+
+            </select>
+            <br>
+            <a class="bottom">이메일 수신동의 시, 신상품/할인혜택/이벤트 등의 정보를 받아보실 수 있습니다.</a><br>
+            <a class="bottom">수신동의 거부 시에도 기본서비스(주문배송 메일)는 발송됩니다.</a>
+            <input type="radio" checked> 예
+            <input type="radio"> 아니오
+        </section>
+    </div>
+    <br>
+
+    <div>
+        <nav>휴대전화</nav>
+        <section>
+            <input type="number"> - <input type="number"> - <input type="number"><br>
+            <a class="bottom">할인혜택과 이벤트 등의 소식 안내를 SMS로 받으실 수 있습니다.</a><br>
+            <a class="bottom">수신등의 거부 시에도 기본 서비스는 발송됩니다.</a>
+            <input type="radio" checked> 예
+            <input type="radio"> 아니오
+        </section>
+    </div>
+    <br>
+
+    <div>
+        <nav>관심 브랜드</nav>
+        <section class="checkbox">
+            <input type="checkbox" name="" value="한빛미디어">한빛미디어
+            <input type="checkbox" name="" value="한빛아카데미">한빛아카데미
+            <input type="checkbox" name="" value="한빛비즈">한빛비즈<br>
+            <input type="checkbox" name="" value="한빛라이프">한빛라이프
+            <input type="checkbox" name="" value="리얼타임ebook">리얼타임ebook
+            <input type="checkbox" name="" value="MAKE">MAKE <br>
+            <input type="checkbox" name="" value="한빛에듀">한빛에듀
+        </section>
+    </div>
+
+</body>
+
+</html>
