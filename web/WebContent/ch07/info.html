@@ -5,68 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ch07/info.html</title>
+   
     <style>
-        div {
-            margin-left: 5%;
+         body {
+        width: 1500px;
+    }
+        header {
+            border-bottom: 1.5px solid gray;
+            margin-left: 40px;
+            width: 45%;
         }
+
+        div {
+            margin-left: 4%;
+        }
+        
 
         select {
             width: 100px;
-            height: 25px;
+            height: 35px;
         }
 
         nav {
             display: inline-block;
             width: 120px;
-            position: relative;
+            /* position: relative; */
             height: 30px;
+        }
+
+        nav.top {
+            position: relative;
+            top: -70px;
         }
 
         section {
             width: 700px;
             display: inline-block;
-            
         }
-
-        section.checkbox {
-            /* margin-left: 15px; */
-        }
-
         button {
             background-color: rgb(9, 211, 184);
             color: white;
             border: 0px;
             height: 30px;
-
         }
-
-
         input {
             border: 1px solid gray;
-            height: 20px;
+            height: 30px;
         }
-
-        a {
+        input.check {
+            /* margin-top: 20px; */
+            height: 30px;
+        
+        }
+        span {
             font-size: 12px;
             color: gray;
         }
-
-        a.bottom {
+        span.right {
             font-size: 12px;
             color: gray;
-            margin-left: 10px;
+            float: right;
         }
+        span.star {
+            font-size: 12px;
+            color: red;
+        }
+        span.text {
+            /* color: black; */
+            font-size: 15px;
+        }
+        span.checkbox {
+            font-size: 12px;
+
+        }
+        div.brand>section>span>input {
+            margin-left :70px;
+        }
+
+    
     </style>
 </head>
 
 <body>
-    <h3>회원정보(필수)</h3>
+    <header>
+        <h3>회원정보
+            <span style="color: rgb(9, 211, 184); font-size: 18px;">(필수)
+            <span class="right">
+            <span class="star">*</span>
+            <span class="right">는 필수 입력사항입니다.</span>
+        </span>
+    </header>
     <br>
 
     <div>
-        <nav>아이디</nav>
+        <nav>아이디<span class="star">*</span></nav>
         <section>
-            <input type="text" value="4자리 이상">
+            <input type="text" placeholder="4자리 이상">
             <button>아이디중복확인</button>
         </section>
     </div>
@@ -74,24 +108,24 @@
 
     <div>
 
-        <nav>비밀번호</nav>
+        <nav>비밀번호<span class="star">*</span></nav>
         <section>
-            <input type="password"> <a> 8~20자리의 영문, 숫자 조합(영문, 숫자, 특수기호 조합을 권장합니다.)</a>
+            <input type="password" placeholder="********"> <span> 8~20자리의 영문, 숫자 조합(영문, 숫자, 특수기호 조합을 권장합니다.)</span>
         </section>
     </div>
     <br>
 
     <div>
-        <nav>비밀번호 확인</nav>
+        <nav>비밀번호 확인<span class="star">*</span></nav>
         <section>
-            <input type="password">
+            <input type="password" placeholder="********">
         </section>
 
     </div>
     <br>
 
     <div>
-        <nav>이름 </nav>
+        <nav>이름<span class="star">*</span></nav>
         <section>
             <input type="text">
         </section>
@@ -99,16 +133,16 @@
     <br>
 
     <div>
-        <nav>성별 </nav>
-        <section>
-            <input type="radio" name="sex" value="male" checked> 남성
-            <input type="radio" name="sex" value="female"> 여성
+        <nav>성별<span class="star">*</span> </nav>
+        <section class="check">
+            <input class="check" type="radio" name="sex" value="male" checked> <span class="text">남성</span>
+            <input class="check" type="radio" name="sex" value="female"> <span class="text">여성</span>
         </section>
     </div>
     <br>
 
     <div>
-        <nav>생년월일</nav>
+        <nav>생년월일<span class="star">*</span></nav>
         <section>
             <select>
                 <option>선택</option>
@@ -126,6 +160,11 @@
                 <option value="1"> 5 </option>
                 <option value="1"> 6 </option>
                 <option value="1"> 7 </option>
+                <option value="1"> 8 </option>
+                <option value="1"> 9 </option>
+                <option value="1"> 10</option>
+                <option value="1"> 11</option>
+                <option value="1"> 12</option>
             </select>
             <select>
                 <option>선택</option>
@@ -137,15 +176,15 @@
                 <option value="1"> 6 </option>
                 <option value="1"> 7 </option>
             </select>
-            <input type="radio" checked>양력
-            <input type="radio">음력
+            <input class="check" type="radio" name="SunMoon" value="양력" checked> <span class="text">양력</span>
+            <input class="check" type="radio" name="SunMoon" value="음력"><span class="text">음력</span>
         </section>
 
     </div>
     <br>
 
     <div>
-        <nav>이메일</nav>
+        <nav class="top">이메일<span class="star">*</span></nav>
         <section>
             <input type="text"> @ <input type="text">
             <select>
@@ -155,38 +194,44 @@
 
             </select>
             <br>
-            <a class="bottom">이메일 수신동의 시, 신상품/할인혜택/이벤트 등의 정보를 받아보실 수 있습니다.</a><br>
-            <a class="bottom">수신동의 거부 시에도 기본서비스(주문배송 메일)는 발송됩니다.</a>
-            <input type="radio" checked> 예
-            <input type="radio"> 아니오
+            <span>이메일 수신동의 시, 신상품/할인혜택/이벤트 등의 정보를 받아보실 수 있습니다.</span><br>
+            <span>수신동의 거부 시에도 기본서비스(주문배송 메일)는 발송됩니다.</span>
+            <input class="check" type="radio" name="email" value="Y" checked><span >예</span>
+            <input class="check" type="radio" name="email" value="N"> <span >아니오</span>
         </section>
     </div>
     <br>
 
     <div>
-        <nav>휴대전화</nav>
+        <nav class="top">휴대전화<span class="star">*</span></nav>
         <section>
-            <input type="number"> - <input type="number"> - <input type="number"><br>
-            <a class="bottom">할인혜택과 이벤트 등의 소식 안내를 SMS로 받으실 수 있습니다.</a><br>
-            <a class="bottom">수신등의 거부 시에도 기본 서비스는 발송됩니다.</a>
-            <input type="radio" checked> 예
-            <input type="radio"> 아니오
+            <input type="text"> - <input type="text"> - <input type="text"><br>
+            <span>할인혜택과 이벤트 등의 소식 안내를 SMS로 받으실 수 있습니다.</span><br>
+            <span>수신등의 거부 시에도 기본 서비스는 발송됩니다.</span>
+            <input class="check" type="radio" name="SMS" value="Y" checked><span> 예</span>
+            <input class="check" type="radio" name="SMS" value="N"> <span>아니오</span>
         </section>
     </div>
     <br>
-
-    <div>
-        <nav>관심 브랜드</nav>
-        <section class="checkbox">
+<div class="brand">
+    <nav class="top">관심 브랜드<span class="star">*</span></nav>
+    <section style="font-size: 12px; color: gray;">
             <input type="checkbox" name="" value="한빛미디어">한빛미디어
+        <span>   
             <input type="checkbox" name="" value="한빛아카데미">한빛아카데미
             <input type="checkbox" name="" value="한빛비즈">한빛비즈<br>
+        </span>
+        
             <input type="checkbox" name="" value="한빛라이프">한빛라이프
+            <span>
             <input type="checkbox" name="" value="리얼타임ebook">리얼타임ebook
             <input type="checkbox" name="" value="MAKE">MAKE <br>
+        </span>
+        
             <input type="checkbox" name="" value="한빛에듀">한빛에듀
-        </section>
-    </div>
+        
+    </section>
+</div>
 
 </body>
 
