@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBoxalign-items.html</title>
+    <style>
+        .flex-container {
+            display: flex;
+            height: 200px;
+            /* align-items: center; */
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items: stretch; */
+            align-items: baseline;
+            /*baseline = 숫자가 들어있는 라인의 높이를 일정하게 해줌,,,!*/
+            background-color: DodgerBlue;
+        }
+
+        .flex-container>div {
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flex-container">
+      <div><h1>1</h1></div>
+      <div><h2>2</h2></div>
+      <div><h5>3</h5></div>
+      <div><h3>4</h3></div>
+      <div><small>5</small></div>
+      <div><h6>6</h6></div>
+      <div><h2>7</h2></div>
+      <div><small>8</small></div>
+
+    </div>
+</body>
+
+</html>

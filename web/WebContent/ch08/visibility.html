@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch08/visibility.html</title>
+    <style>
+        img {
+            width: 120px;
+        }
+        div {
+            border: 1px dotted red;
+        }
+        div.v1 {
+            /* display: none; */
+            display: inline-block;
+            /* visibility: hidden; */
+            opacity: 0.7;
+
+            width: 150px;
+        }
+        div.v2 {
+            display: inline-block;
+            visibility: visible;
+            opacity: 0.3;
+
+        }
+        div.v3 {
+            /* visibility: hidden; */
+            visibility: visible;
+            display: inline-block;
+            /* display: none; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="v1">
+        <img src="../images/html5.png" alt="">
+    </div>
+    <div class="v2">
+        <img src="../images/html5.png" alt="">
+    </div>
+    <div class="v3">
+        <img src="../images/html5.png" alt="">
+    </div>
+
+</body>
+
+</html>
