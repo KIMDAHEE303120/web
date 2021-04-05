@@ -1,0 +1,50 @@
+body {
+    border: 2px dotted gray;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+header.container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(253, 241, 186);
+    /* height: 10vh; */
+    padding: 2%;
+    text-align: left;
+
+}
+
+nav.container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(180, 236, 96);
+    text-align: left;
+    float: left;
+    width: 20%;
+    height: 80px;
+}
+section.container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(180, 236, 96);
+    text-align: left;
+    margin-left: 30%;
+    /* width: 70%; */
+    height: 50%;
+
+}
+
+footer.container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(255, 214, 81);
+    text-align: left;  
+    padding: 2%;
+}
+
+.content {
+    /* padding: 2%; */
+    margin: 2%;
+    border: 1px dotted gray;
+    border-radius: 5px;
+}
