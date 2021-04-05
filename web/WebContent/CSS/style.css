@@ -1,0 +1,35 @@
+* {
+     text-align: center;
+     box-sizing: border-box;
+     border-radius: 5px;
+}
+
+header.container {
+    border: 1px solid gray;;
+    background-color: rgb(253, 241, 186);
+    height: 120px;
+    margin: 1%;
+    width: 97%;  
+}
+
+nav, section {
+    border: 1px solid gray;
+    background-color: rgb(180, 236, 96);
+    margin: 1% 1%;
+}
+nav {
+    width: 35%; height: 50vh;
+    float: left;            
+}
+section {
+    width: 60%; height: 50vh;
+    float: left;
+}
+footer.container {
+    border: 1px solid gray;;
+    background-color: rgb(255, 214, 81);
+    height: 50px;
+    clear: left;  
+    margin: 1%;   
+    width: 97%;       
+}
