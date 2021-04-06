@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar.html</title>
+    <style>
+        table {
+           background-color: rgba(99, 70, 70, 0.712);
+           color: white;
+        }
+        td:nth-of-type(1), th:nth-of-type(1) {
+            background-color: rgb(252, 135, 154);
+            /* color: white; */
+        }
+
+        td:nth-of-type(7), th:nth-of-type(7) {
+            background-color: rgba(92, 162, 255, 0.911);
+            /* color: white; */
+        }
+        caption {
+            color: rgb(97, 96, 96);
+            font-weight: bold;
+        }
+    </style>
+    <script src="javascript/cal.js"> </script>
+</head>
+
+<body>
+    <!-- <table border = '1';>
+        <tr>
+            <th style="background-color: rgb(255, 173, 173);">일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th style="background-color: rgb(198, 223, 255);">토</th>
+        </tr>
+        <tr>
+            <td style="background-color: rgb(255, 173, 173);"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td style="background-color: rgb(198, 223, 255);">3</td>
+        </tr>
+    </table> -->
+
+    <script>
+        createcalendar(2021, 3); // function 앞에서 불러올 수도 있음
+        function createcalendar(year, month) {
+            let today = new Date(year, month - 1);
+            let thisYear = today.getFullYear();
+            let thisMonth = today.getMonth(); //0: 1월, 1: 2월, ...
+            let thisDate = today.getDate();
+            let thisDay = today.getDay(); //0: 일, 1: 월, 2: 화, ...
+            console.log(thisYear);
+            console.log(thisMonth + 1);
+            console.log(thisDate);
+            console.log(thisDay);
+
+            let lastDate = new Date(thisYear, thisMonth + 1, 0).getDate();
+            //(,, month + 1,) 이번달 + 1 = 다음달
+            //( , ,0)0: 지난달의 마지막날, 1: 이번 달 1번째 날
+            let firstDate = new Date(thisYear, thisMonth, 1).getDate();
+            let firstDay = new Date(thisYear, thisMonth, 1).getDay(); //이번달의 1번째 날의 요일
+            console.log(firstDay)
+            // let firstDay = 4 
+            let days = ['일', '월', '화', '수', '목', '금', '토'];
+
+
+
+            //calendarTag += 로 달력 만들기 
+
+            //요일
+            let calendarTag = '<table><tr>';
+            calendarTag += '<caption>' + year + '년 ' + month + '월' + '</caption>'
+            for (let i = 0; i < 7; i++) {
+                calendarTag += '<th>' + days[i] + '</th>';
+            }
+
+            //날짜
+            calendarTag += '</tr><tr>';
+            for (let i = 0; i < firstDay; i++) {
+                calendarTag += '<td></td>';
+            }
+
+            for (let i = 1; i <= lastDate; i++) {
+                // document.write('<td></td>');
+                if ((i + firstDay) % 7 == 0) {
+                    calendarTag += '<td>' + i + '</td></tr><tr>';
+                // } else if (i == thisDate) { //오늘 날짜 표시
+                //     calendarTag += '<td style = "background-color : yellow;">' + i + '</td>';
+                } else {
+                    calendarTag += '<td>' + i + '</td>';
+                }
+            }
+            calendarTag += '</tr></table>';
+            document.write(calendarTag);
+        }
+
+        createcalendar(2021,4);
+        createcalendar(2021,5);
+        // createcalendar(2021,6);
+        // createcalendar(2021,7);
+
+
+
+
+    </script>
+
+</body>
+
+</html>
