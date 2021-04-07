@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/basic.html</title>
+    <!-- <script src="basic.js"></script>
+    <script src="variable.js"></script>
+    <script src="operator.js"></script> -->
+    <!-- <script src="object.js"></script> -->
+    <style>
+        /* div {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id='show'></div>
+    <ul id="list"> </ul>
+    <ul id="members"> </ul>
+    <p />
+    <!-- <script src="object.js"></script> -->    
+    <!-- <script src="array.js"> </script> -->
+    <!-- <script src="lunch.js"> </script> -->
+    <!-- <script src="object2.js"> </script> -->
+    <!-- <script src="class.js"> </script> -->
+
+    <script>
+    
+        let str = 'Hello'; //new String();
+        str.charAt(0);
+        str.indexOf('a');
+
+
+        let t = 'Hello Thank you good luck to you';
+        document.write(t.charAt(16), '<br />');
+        document.write(t.indexOf("you"), '<br />');
+        document.write(t.indexOf("you", 16), '<br />');
+        document.write(t.lastIndexOf("you"), '<br />');
+        document.write(t.lastIndexOf("you", 25), '<br />');
+        document.write(t.match("luck"), '<br />');
+        document.write(t.search("you"), '<br />');
+        document.write(t.substr(21, 4), '<br />');
+        document.write(t.substring(6, 12), '<br />');
+        document.write(t.replace("you", "me"), '<br />');
+        document.write(t.toLowerCase( ), '<br />');
+        document.write(t.toUpperCase( ), '<br />');
+        document.write(t.length, '<br />');
+
+        let s = t.split(" ");
+
+        document.write(s[0], '<br />');
+        document.write(s[4], '<br />');
+
+        str = 'A';
+        t=str.charCodeAt(0);
+
+        document.write(t, '<br />');
+        document.write(String.fromCharCode(65), '<br>');
+
+        console.log(this);
+        console.log(location.href)
+
+   
+    </script>
+
+</body>
+
+</html>
