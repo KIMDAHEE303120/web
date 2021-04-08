@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/basic.html</title>
-    <!-- <script src="basic.js"></script>
-    <script src="variable.js"></script>
-    <script src="operator.js"></script> -->
+    <!-- <script src="basic.js"></script> -->
+    <!-- <script src="variable.js"></script> -->
+    <!-- <script src="operator.js"></script> -->
     <!-- <script src="object.js"></script> -->
+    <!-- <script src="object.js"></script> -->
+    <!-- <script src="array.js"> </script> -->
+    <!-- <script src="lunch.js"></script> -->
+    <!-- <script src="object2.js"> </script> -->
+    <!-- <script src="class.js"> </script> -->
+    <!-- <script src="Hello.js"> </script> -->
+    <!-- <script src="function.js"> </script> -->
+
     <style>
         /* div {
             float: left;
@@ -20,53 +28,136 @@
 </head>
 
 <body>
-    <div id='show'></div>
+    <div></div>
     <ul id="list"> </ul>
     <ul id="members"> </ul>
+    <table id="tbl" border="1"></table>
     <p />
-    <!-- <script src="object.js"></script> -->    
-    <!-- <script src="array.js"> </script> -->
-    <!-- <script src="lunch.js"> </script> -->
-    <!-- <script src="object2.js"> </script> -->
-    <!-- <script src="class.js"> </script> -->
-
+    <button onclick="changeColor()"> Change Color</button>
     <script>
-    
-        let str = 'Hello'; //new String();
-        str.charAt(0);
-        str.indexOf('a');
+        //forEach: 1번 요소 = 값, 2번 요소 = 배열인덱스, 3번 요소 = 전체 배열.. 
+        let numbers = [23, 45, 33, 56, 12];
+        let sum = 0;
+        let list = document.getElementById('list');
+        numbers.forEach(function (a, b, c) {
+            sum += a;
+            //배열 요소의 값을 화면에 출력하는 방법
+            let li = document.createElement('li')
+            let text = document.createTextNode(a);
+            li.appendChild(text);
+            list.appendChild(li);
+        });
+        console.log(sum);
 
 
-        let t = 'Hello Thank you good luck to you';
-        document.write(t.charAt(16), '<br />');
-        document.write(t.indexOf("you"), '<br />');
-        document.write(t.indexOf("you", 16), '<br />');
-        document.write(t.lastIndexOf("you"), '<br />');
-        document.write(t.lastIndexOf("you", 25), '<br />');
-        document.write(t.match("luck"), '<br />');
-        document.write(t.search("you"), '<br />');
-        document.write(t.substr(21, 4), '<br />');
-        document.write(t.substring(6, 12), '<br />');
-        document.write(t.replace("you", "me"), '<br />');
-        document.write(t.toLowerCase( ), '<br />');
-        document.write(t.toUpperCase( ), '<br />');
-        document.write(t.length, '<br />');
+        class Student {
+            constructor(sno, name, score) {
+                this.sno = sno;
+                this.name = name;
+                this.score = score;
+            }
+        }
 
-        let s = t.split(" ");
+        //학생정보 넣기
+        let student = {
+            sno: '1111',
+            name: 'Hong',
+            score: 80
+        }
 
-        document.write(s[0], '<br />');
-        document.write(s[4], '<br />');
+        let students = [];
+        students.push(student);
+        students.push(new Student('2222', 'Hwang', 90));
+        students.push(new Student('3333', 'Park', 75));
 
-        str = 'A';
-        t=str.charCodeAt(0);
 
-        document.write(t, '<br />');
-        document.write(String.fromCharCode(65), '<br>');
+        //<tr><td>1111<td><tr>
+        function createTr(std) {
+            let trTag = document.createElement('tr');
+            trTag.onmouseover = function () {
+                this.style.backgroundColor = 'coral';
+            }
+            trTag.onmouseout = function () {
+                this.style.backgroundColor = '';
+            }
+            let td = document.createElement('td');
+            let chk = document.createElement('input');
+            chk.setAttribute('type', 'checkbox');
+            td.appendChild(chk);
+            trTag.appendChild(td);
 
-        console.log(this);
-        console.log(location.href)
+            for (field in std) {
+                //학번넣기
+                let tdTag = document.createElement('td');
+                let text = document.createTextNode(std[field]);
+                tdTag.appendChild(text);
+                trTag.appendChild(tdTag);
+            }
 
-   
+            td = document.createElement('td');
+            let btn = document.createElement('button');
+            btn.innerHTML = 'OK' //<button> OK </button>
+            btn.onclick = clickFnc; //clickFnc() => 클릭하기전에 읽어오면서 실행하기 때문에 괄호는 빼주기
+            td.appendChild(btn);
+            trTag.appendChild(td);
+
+            // //이름넣기
+            // tdTag = document.createElement('td');
+            // text = document.createTextNode('Hong');
+            // tdTag.appendChild(text);
+            // trTag.appendChild(tdTag);
+
+            // //점수넣기
+            // tdTag = document.createElement('td');
+            // text = document.createTextNode('80');
+            // tdTag.appendChild(text);
+            // trTag.appendChild(tdTag);
+
+            return trTag;
+        }
+
+        let tbl = document.getElementById('tbl');
+        students.forEach(function (val, indx, ary) {
+            let newTr = createTr(val);
+            tbl.appendChild(newTr);
+        });
+        // console.log(createTr());
+
+
+        //btn finction
+        function clickFnc() {
+            // console.log(this.parentNode.parentNode.children[1].innerHTML);
+            // window.alert(this.parentNode.parentNode.children[1].innerHTML);
+            this.parentNode.parentNode.remove();
+        }
+
+        let json =
+            '[{"id":1,"first_name":"Yovonnda","last_name":"Chippendale","email":"ychippendale0@webeden.co.uk","gender":"Female","ip_address":"71.235.157.158"}, {"id":2,"first_name":"Amby","last_name":"Lamperd","email":"alamperd1@gov.uk","gender":"Polygender","ip_address":"5.191.65.137"}, {"id":3,"first_name":"Virgina","last_name":"Carsey","email":"vcarsey2@technorati.com","gender":"Non-binary","ip_address":"185.188.23.81"}, {"id":4,"first_name":"Nicky","last_name":"Maffulli","email":"nmaffulli3@mashable.com","gender":"Non-binary","ip_address":"31.159.35.119"}, {"id":5,"first_name":"Barnabas","last_name":"Olenichev","email":"bolenichev4@wikimedia.org","gender":"Female","ip_address":"238.215.24.210"}, {"id":6,"first_name":"Reggy","last_name":"Jeffs","email":"rjeffs5@sakura.ne.jp","gender":"Bigender","ip_address":"178.127.88.252"}, {"id":7,"first_name":"Georgette","last_name":"Sheahan","email":"gsheahan6@google.com","gender":"Genderfluid","ip_address":"216.187.232.240"}, {"id":8,"first_name":"Flynn","last_name":"Sarge","email":"fsarge7@hud.gov","gender":"Genderfluid","ip_address":"179.181.119.155"}, {"id":9,"first_name":"Ellette","last_name":"Riep","email":"eriep8@uiuc.edu","gender":"Non-binary","ip_address":"177.154.128.250"}, {"id":10,"first_name":"Van","last_name":"Hamner","email":"vhamner9@examiner.com","gender":"Agender","ip_address":"229.244.200.79"}, {"id":11,"first_name":"Dori","last_name":"Brookesbie","email":"dbrookesbiea@aboutads.info","gender":"Genderfluid","ip_address":"129.106.220.70"}, {"id":12,"first_name":"Zacharias","last_name":"Dalby","email":"zdalbyb@studiopress.com","gender":"Non-binary","ip_address":"250.28.84.74"},  {"id":13,"first_name":"Alissa","last_name":"Rentoll","email":"arentollc@state.tx.us","gender":"Bigender","ip_address":"89.47.127.223"}, {"id":14,"first_name":"Kerianne","last_name":"Dog","email":"kdogd@gravatar.com","gender":"Female","ip_address":"191.187.161.219"}, {"id":15,"first_name":"Marcellus","last_name":"Yaknov","email":"myaknove@4shared.com","gender":"Agender","ip_address":"193.82.170.104"}]';
+        let data = JSON.parse(json);
+        console.log(data);
+
+        //선택체크박스, 아이디, 이름, 성, 이메일, 성별, 삭제버튼
+        function newTbl(json) {
+            let trTag = document.createElement('tr');
+            trTag.onmouseover = function () {
+                this.style.backgroundColor = 'coral';
+            }
+            trTag.onmouseout = function () {
+                this.style.backgroundColor = '';
+            }
+            let td = document.createElement('td');
+            let chk = document.createElement('input');
+            chk.setAttribute('type', 'checkbox');
+            td.appendChild(chk);
+            trTag.appendChild(td);
+
+        }
+        // tbl = document.getElementById('tbl');
+        // json.forEach(function (val, indx, ary) {
+        //     let newJ = newTbl(val);
+        //     tbl.appendChild(newTbl);
+        // });
+
     </script>
 
 </body>
