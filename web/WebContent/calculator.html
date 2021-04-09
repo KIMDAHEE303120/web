@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculrtor.html</title>
+   
+</head>
+
+<body>
+    <input type="text" name="firstVal" id="firstVal">
+    <input type="text" name="oper" id="oper" value="+">
+    <input type="text" name="lastVal" id="lastVal">
+    <span> = </span>
+    <input type="text" name="result" id="result" readonly>
+
+    <script>
+        let lv = document.getElementById('lastVal');
+        lv.onchange = calFnc;
+
+        //계산 후 result 영역에 결과 넣어주기
+        function calFnc() {
+            let fv = document.getElementById('firstVal').value;
+            let op = document.getElementById('oper').value;
+            let lv = document.getElementById('lastVal').value;
+            let rst = document.getElementById('result');
+
+            rst.value = cal(fv, lv, op);
+            // rst.value = parseInt(fv) + parseInt(lv);
+            // rst.setAttribute('value', parseInt(fv) + parseInt(lv));
+        }
+
+        //(첫번째 값, 두번째 값, 연산자)
+        function cal(f, l, o) {
+            let fval = parseInt(f);
+            let lval = parseInt(l);
+            let result = 0;
+            if (o == '+') {
+                result = fval + lval;
+            }
+            if (o == '-') {
+                result = fval - lval;
+            }
+            if (o == '*') {
+                result = fval * lval;
+            }
+            if (o == '/') {
+                result = fval / lval;
+            }
+
+            return result;
+        }
+
+    </script>
+
+</body>
+
+</html>

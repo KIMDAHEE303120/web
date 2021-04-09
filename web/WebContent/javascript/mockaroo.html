@@ -8,43 +8,143 @@
 </head>
 
 <body>
+    <table id="tbl" border="1"></table>
     <script>
-        let tr, td, tbl;
 
+        let titles = {
+            id: 'ID',
+            first_name: 'FIRST_NAME',
+            last_name: 'LAST_NAME',
+            email: 'E-MAIL',
+            gender: 'GENDER'
+            // ip_address: '아이피주소'
 
-
-        
+        }
 
         let json =
             '[{"id":1,"first_name":"Yovonnda","last_name":"Chippendale","email":"ychippendale0@webeden.co.uk","gender":"Female","ip_address":"71.235.157.158"}, {"id":2,"first_name":"Amby","last_name":"Lamperd","email":"alamperd1@gov.uk","gender":"Polygender","ip_address":"5.191.65.137"}, {"id":3,"first_name":"Virgina","last_name":"Carsey","email":"vcarsey2@technorati.com","gender":"Non-binary","ip_address":"185.188.23.81"}, {"id":4,"first_name":"Nicky","last_name":"Maffulli","email":"nmaffulli3@mashable.com","gender":"Non-binary","ip_address":"31.159.35.119"}, {"id":5,"first_name":"Barnabas","last_name":"Olenichev","email":"bolenichev4@wikimedia.org","gender":"Female","ip_address":"238.215.24.210"}, {"id":6,"first_name":"Reggy","last_name":"Jeffs","email":"rjeffs5@sakura.ne.jp","gender":"Bigender","ip_address":"178.127.88.252"}, {"id":7,"first_name":"Georgette","last_name":"Sheahan","email":"gsheahan6@google.com","gender":"Genderfluid","ip_address":"216.187.232.240"}, {"id":8,"first_name":"Flynn","last_name":"Sarge","email":"fsarge7@hud.gov","gender":"Genderfluid","ip_address":"179.181.119.155"}, {"id":9,"first_name":"Ellette","last_name":"Riep","email":"eriep8@uiuc.edu","gender":"Non-binary","ip_address":"177.154.128.250"}, {"id":10,"first_name":"Van","last_name":"Hamner","email":"vhamner9@examiner.com","gender":"Agender","ip_address":"229.244.200.79"}, {"id":11,"first_name":"Dori","last_name":"Brookesbie","email":"dbrookesbiea@aboutads.info","gender":"Genderfluid","ip_address":"129.106.220.70"}, {"id":12,"first_name":"Zacharias","last_name":"Dalby","email":"zdalbyb@studiopress.com","gender":"Non-binary","ip_address":"250.28.84.74"},  {"id":13,"first_name":"Alissa","last_name":"Rentoll","email":"arentollc@state.tx.us","gender":"Bigender","ip_address":"89.47.127.223"}, {"id":14,"first_name":"Kerianne","last_name":"Dog","email":"kdogd@gravatar.com","gender":"Female","ip_address":"191.187.161.219"}, {"id":15,"first_name":"Marcellus","last_name":"Yaknov","email":"myaknove@4shared.com","gender":"Agender","ip_address":"193.82.170.104"}]';
         let data = JSON.parse(json);
         console.log(data);
 
-        //선택체크박스, 아이디, 이름, 성, 이메일, 성별, 삭제버튼
-        function newTbl(json) {
-            let trTag = document.createElement('tr');
-            trTag.onmouseover = function () {
-                this.style.backgroundColor = 'coral';
-            }
-            trTag.onmouseout = function () {
-                this.style.backgroundColor = '';
-            }
-            let td = document.createElement('td');
-            let chk = document.createElement('input');
-            chk.setAttribute('type', 'checkbox');
-            td.appendChild(chk);
-            trTag.appendChild(td);
+        // //선택체크박스, 아이디, 이름, 성, 이메일, 성별, 삭제버튼
+        // function newTbl(json) {
+        //     let trTag = document.createElement('tr');
+        //     trTag.onmouseover = function () {
+        //         this.style.backgroundColor = 'coral';
+        //     }
+        //     trTag.onmouseout = function () {
+        //         this.style.backgroundColor = '';
+        //     }
+        //     let td = document.createElement('td');
+        //     let chk = document.createElement('input');
+        //     chk.setAttribute('type', 'checkbox');
+        //     td.appendChild(chk);
+        //     trTag.appendChild(td);
 
-        }
+        // }
         // tbl = document.getElementById('tbl');
         // json.forEach(function (val, indx, ary) {
         //     let newJ = newTbl(val);
         //     tbl.appendChild(newTbl);
         // });
 
+        let tr, td, th, text, tbl;
+
+        //타이틀
+        tbl = document.getElementById('tbl');
+        tr = document.createElement('tr');
+        //타이틀 check Box
+        chkbox = document.createElement('input');
+        chkbox.setAttribute('type', 'checkbox');
+        chkbox.onchange = allcheck;
+        th = document.createElement('th');
+        th.appendChild(chkbox);
+        tr.appendChild(th);
+        tbl.appendChild(tr);
+
+        for (title in titles) {
+            th = document.createElement('th');
+            text = document.createTextNode(titles[title]);
+            th.appendChild(text);
+            tr.appendChild(th);
+        }
+        //타이틀 button
+        btn = document.createElement('input');
+        btn.setAttribute('type', 'button');
+        btn.setAttribute('value', 'DELETE');
+        btn.onclick = delcheck;
+        th = document.createElement('th');
+        th.appendChild(btn);
+        tr.appendChild(th);
 
 
+        function createTr(val) {
+            tr = document.createElement('tr');
+            tbl.appendChild(tr);
 
+            //데이터 항목
+            tr = document.createElement('tr');
+
+            //check Box
+            chkbox = document.createElement('input');
+            chkbox.setAttribute('type', 'checkbox');
+            td = document.createElement('td');
+            td.appendChild(chkbox);
+            tr.appendChild(td);
+
+
+            // id, first_name, last_name, email, gender, ip_address
+            for (field in titles) {
+                td = document.createElement('td');
+                text = document.createTextNode(val[field]);
+                td.appendChild(text);
+                tr.appendChild(td);
+            }
+
+            //button
+            btn = document.createElement('input');
+            btn.setAttribute('type', 'button');
+            btn.setAttribute('value', 'Del');
+            btn.onclick = delFunc;
+            td = document.createElement('td');
+            td.appendChild(btn);
+            tr.appendChild(td);
+
+            return tr;
+        }
+
+
+        data.forEach(function (val, indx, arr) {
+            let newTr = createTr(val);
+            tbl.appendChild(newTr);
+
+        });
+
+
+        //한건 지우기
+        function delFunc() {
+            console.log(this.parentNode.parentNode.remove());
+        }
+
+        //전체 선택
+        function allcheck() {
+            let tChk = document.querySelector('th>input[type="checkbox"]');
+            let checks = document.querySelectorAll('td>input[type="checkbox"]');
+            for (let i = 0; i < checks.length; i++) {
+                checks[i].checked = tChk.checked;
+            }
+        }
+
+        //선택한 라인 지우기
+        function delcheck() {
+            let checkAll = document.querySelectorAll('td>input[type="checkbox"]:checked');
+            console.log(checkAll);
+            for (let i = 0; i <checkAll.length; i++) {
+                // if ( checkAll[i].checked = true ) {
+                    checkAll[i].parentNode.parentNode.remove();
+                // }
+            }
+        }
 
     </script>
 </body>
