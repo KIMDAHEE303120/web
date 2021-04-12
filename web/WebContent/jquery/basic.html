@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/basic.html</title>
+    <!-- <script src="./jquery-3.6.0.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // window.onload = function() {
+        //     document.getElementById('show').innerHTML = 'Hello';
+        // }
+        $(document).ready(function () {
+            // document.getElementById('show').innerHTML = 'Hello';
+       
+            // jquery >> $기호를 앞에 붙여야함...!
+            $('#show').html('Hello~~~');
+            //$('<td />').attr('id', 'first'); // document.createElemant('td'); 한 것과 같음
+        //jquery로 테이블 만들기
+        let tbl = $('<table border = "1" />').attr('id', 'tbl');
+        let tr = $('<tr />').append(
+            $('<td />').html('name'), 
+            $('<td />').html('id'));
+            tbl.append(tr);
+
+            console.log(tbl);
+            $('body').eq(0).append(tbl); //eq = equals = ~번째 인덱스 값을 가져오겠다~~
+        });
+    </script>
+</head>
+
+<body>
+    <p id="show"></p>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
