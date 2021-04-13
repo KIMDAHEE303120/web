@@ -160,7 +160,6 @@
 
         function delCheck() {
             let checkAll = document.querySelectorAll('td>input[type="checkbox"]:checked');
-            console.log(checkAll);
             for (let i = 0; i < checkAll.length; i++) {
                 checkAll[i].parentNode.parentNode.remove();
             }
