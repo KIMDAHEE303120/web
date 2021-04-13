@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/event.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <!-- <script src="./event.js"></script> -->
+    <script>
+        $.ajax({
+            url: '../MOCK_DATA.json',
+            success: function (result) {
+                let objs = $(result).map(function (idx, obj) {
+                    let person = {};
+                    person.name = obj.first_name;
+                    person.email = obj.email;
+                    return person;
+                }).filter(function (idx, obj) {
+                    return idx < 5;
+                });
+                // let objf = $(objs).filter(function (idx, obj) {
+                //    return idx < 5;
+                // });
+                console.log(objs);
+
+                let tbl = $('<table border="1" />');
+                // tbl.attr('border', '1');
+                $(objs).each(function(idx, obj) {
+                    //노란색 채우기
+                    let trTag = $('<tr />');   
+                    trTag.mouseover(function() {
+                        $(this).css('background-color', 'yellow');
+                    });    
+                    trTag.on({
+                        'mouseout': function() {$(this).css('background-color', '')},
+                        'click' : function() {console.log($(this).children().eq(1).html());}
+                    });
+                    
+                    //체크박스 만들기
+                    let tdTag = $('<td />');
+                    let ips = $('<input />').attr('type', 'checkbox');
+                    trTag.append(tdTag.append(ips));
+
+                    //값 가져오기
+                    for(field in obj) {
+                        let tdTag = $('<td />').html(obj[field]);
+                        trTag.append(tdTag);
+                    }
+                    tbl.append(trTag);
+                });
+                $('body').append(tbl);
+
+                $('body').append($('<button />').html('삭제').click(delChecked));
+            }            
+        });
+
+        function delChecked() {
+            console.log($(this))
+            $('td>input[type="checkbox"]:checked')
+            // $('td>input[type="checkbox"]').is(':checked') >> 오류,, 확인해봐야 함..
+            .parentsUntil('table')
+            // .remove();
+            .css('color' , 'red');
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <button id="btn"> 클릭 </button> 
+    <button id='bton'> click</button>
+    <button id="btnOn">클릭(jquery)</button>
+    <button id="buttonOn"> click</button>
+
+    <script>
+        //자바 스크립트
+        //클릭버튼 만들기 1
+        let btn = document.getElementById('btn');
+        btn.onclick = function() {
+            alert('클릭버튼이 눌렸습니다!')
+        }
+        btn.onmouseover = function() {
+            this.style.backgroundColor = 'yellow';
+        }
+        btn.onmouseout = function() {
+            this.style.backgroundColor = '';
+        }
+
+        //클릭버튼 만들기 2
+        let bton = document.getElementById('bton');
+        bton.addEventListener('click', function() {
+            alert('클릭버튼이 눌렸습니다~~')
+        })
+        bton.addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'yellow';
+        })
+        bton.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '';
+        })
+
+        //jquery
+        //클릭버튼 만들기 3
+
+        $('#btnOn').click(function() {
+            console.log('클릭 되었습니다~~~')
+        });
+        $('#btnOn').mouseover(function() {
+            $(this).css('background-color', 'yellow');
+        });
+        $('#btnOn').mouseout(function() {
+            $(this).css('background-color', '');
+        });
+
+        //클릭버튼 만들기 4
+        $('#buttonOn').on('click', function() {
+            console.log('클릭 되었습니다~~~!!')
+        });        
+        //여러건의 event를 한번에 넣기
+        $('#buttonOn').on({
+            'mouseover' : function() {$(this).css('background-color', 'yellow');},
+            'mouseout' :  function() {$(this).css('background-color', '');}
+        });
+
+
+    </script>
+</body>
+
+</html>
