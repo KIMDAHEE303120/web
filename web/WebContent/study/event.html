@@ -1,15 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
     <script>
-        
+        let title = {
+            check: '선택',
+            id: 'ID',
+            first_name: 'FIRST_NAME',
+            last_name: 'LAST_NAME',
+            email: 'EMAIL',
+            gender: 'GENDER',
+            ip_address: 'IP'
+        };
+
+        $.ajax({
+            url: "../MOCK_DATA.json",
+            dataType: 'json',
+            success: function (result) {
+                let objs = $(result).map(function (idx, obj) {
+                    let person = {};
+                    person.id = obj.id;
+                    person.fname = obj.first_name;
+                    person.lname = obj.last_name;
+                    person.email = obj.email;
+                    person.gender = obj.gender;
+                    person.ip = obj.ip_address;
+                    return person;
+                });
+
+                let tbl = $('<table border="1" />');
+                let trTag = $('<tr />');
+
+                // //타이틀 체크박스
+                // trTag = $('<tr />');
+                // tdTag = $('<td />');
+                // let ips = $('<input />').attr('type', 'checkbox'));
+                // trTag.append(tdTag.append(ips));
+
+
+                //타이틀
+                for (titles in title) {
+                    let thTag = $('<th />').html(title[titles]);
+                    trTag.append(thTag);
+                }
+                tbl.append(trTag);
+
+                $(objs).each(function (idx, obj) {
+                    //체크박스
+                    trTag = $('<tr />');
+                    tdTag = $('<td />');
+                    let ips = $('<input />').attr('type', 'checkbox');
+                    trTag.append(tdTag.append(ips));
+
+                    //값 가져오기
+                    for (field in obj) {
+                        tdTag = $('<td />').html(obj[field]);
+                        trTag.append(tdTag);
+                    }
+                    tbl.append(trTag);
+                });
+                $('body').append(tbl);
+
+                //버튼만들기
+                $('body').append($('<button />').html('삭제').click(delChecked));
+            }//end of success 
+        }); //end of ajax
+
+        function delChecked() {
+            console.log($(this))
+            $('td>input[type="checkbox"]:checked')
+                .parentsUntil('table')
+                .remove();
+        }
+
+        // function allchk() {
+        //     let tChk = document.querySelector('th>input[type="checkbox"]');
+        //     let checks = document.querySelectorAll('td>input[type="checkbox"]');
+        //     for (let i = 0; i < checks.length; i++) {
+        //         checks[i].checked = tChk.checked;
+        //     }
+        // }
+
+
     </script>
 </head>
-<body>
-    
+
+<body id="bdy">
+
 </body>
+
 </html>
