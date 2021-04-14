@@ -2,16 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mara.html</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mara.html</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
 <body>
-    <script>
+	<script>
         let ingredient = ['양고기', '소고기', '오뎅', '연근', '감자', '청경채', '숙주', '물만두', '콴펀', '배추'
             , '팽이버섯', '새송이버섯', '목이버섯', '대파', '부추', '건두부', '푸주', '실당면'];
 
@@ -38,8 +39,10 @@
 
         function select() {
             let values = [];
+            let selects = $('td>input[type="checkbox"]:checked');
+            console.log(selects);
+            	
             for (let i = 0; i < ingredient.length; i++) {
-                values[i] =  $('td>input[type="checkbox"]:checked');
             }
             alert(values.join('') + '가 들어간 맛있는 마라탕 완성~');
         }

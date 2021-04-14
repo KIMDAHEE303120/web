@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery/ajax.html</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		let query = 'boardNo=4&title=test$content=test&writer=user1';
+		$.ajax({
+			url : 'ajax.jsp', // 요청할 페이지 
+			data : {
+				boardNo : 4,
+				title : 'test',
+				content : 'test',
+				writer : 'user1'},
+			success : function(data) {
+				console.log(data);
+			}
+		});
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
