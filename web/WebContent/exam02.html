@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>exam02</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <script>
+        $.ajax({
+            url: './members.json',
+            dataType: 'json',
+            success: function (result) {
+                let objs = $(result).map(function (idx, obj) {
+                    let person = {};
+                    person.id = obj.mem_id;
+                    person.fname = obj.first_name;
+                    person.lname = obj.last_name;
+                    person.email = obj.email;
+                    person.gender = obj.gender;
+                    person.ip = obj.address;
+                    return person;
+                });
+                
+                let tbl = $('<table border="1" />');
+                $(objs).each(function (idx, obj) {
+                let trTag = $('<tr />');
+
+                for (field in obj) {
+                    tdTag = $('<td />').html(obj[field]);
+                    trTag.append(tdTag);
+                }
+                tbl.append(trTag);
+                });
+        $('body').append(tbl);
+            } //end of success
+        }) //end of ajax
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

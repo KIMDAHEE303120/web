@@ -23,7 +23,7 @@ console.log('1');
 console.log('2');
                 let doc = xhtp.responseXML;
                 rows = doc.getElementsByTagName('CD');
-                table = '<t><th>Artist</th> <th>Title</th></tr>';
+                table = '<tr><th>Artist</th> <th>Title</th></tr>';
                 for (let i = 0; i < rows.length; i++) {
                     //tagName으로 가져올 땐 반드시 배열로 가져와야함
                     table += '<tr onclick = displayCD(' + i + ')><td>'
@@ -37,13 +37,13 @@ console.log('2');
         xhtp.send();
 console.log('3');
 
-        function displayCD(i) {
-            let row =
-                'Artist: ' + rows[i].getElementsByTagName('ARTIST')[0].innerHTML + '<br>' +
-                'Title: ' + rows[i].getElementsByTagName('TITLE')[0].innerHTML + '<br>' +
-                'Year: ' + rows[i].getElementsByTagName('YEAR')[0].innerHTML;
-            document.getElementById('showCD').innerHTML = row;
-        };
+        // function displayCD(i) {
+        //     let row =
+        //         'Artist: ' + rows[i].getElementsByTagName('ARTIST')[0].innerHTML + '<br>' +
+        //         'Title: ' + rows[i].getElementsByTagName('TITLE')[0].innerHTML + '<br>' +
+        //         'Year: ' + rows[i].getElementsByTagName('YEAR')[0].innerHTML;
+        //     document.getElementById('showCD').innerHTML = row;
+        // };
     </script>
 </body>
 

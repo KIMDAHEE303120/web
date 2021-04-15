@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exam01</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+<script>
+
+
+</script>
+</head>
+<body>
+    <div> 이름: 
+        <input type="text" style="width: 220px;" name="name" id="name"> 
+    </div>
+
+    <div> 나이: 
+        <input type="text" style="width: 220px;" name="age"> 
+    </div>
+
+    <div> 전화번호: 
+        <input type="text" style="width: 48px;" name="phone">-
+        <input type="text" style="width: 50px;" name="phone">-
+        <input type="text" style="width: 50px;" name="phone">
+    </div>
+   
+    <div class="centerbtn">
+        <input type="submit" value="전송" onclick="get()">
+    </div>
+
+
+
+    <script>
+      
+        function get() {
+            console.log(document.getElementsByName('name')[0].value);
+            console.log(document.getElementsByName('age')[0].value);
+            console.log(document.getElementsByName('phone')[0].value);
+        }
+
+     
+    </script>
+      
+
+   
+
+</body>
+</html>

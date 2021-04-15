@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>exam03</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script> -->
+</head>
+
+<body>
+    <table id="tbl" border="1"></table>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        let rows;
+        xhtp.onreadystatechange = function () {
+            if (xhtp.readyState == 4 && xhtp.status == 200) {
+                let doc = xhtp.responseXML;
+                rows = doc.getElementsByTagName('record');
+                table = '<tr></tr>';
+                for (let i = 0; i < rows.length; i++) {
+                    table += '<tr><td>'
+                        + rows[i].getElementsByTagName('emp_id')[0].innerHTML + '</td><td>'
+                        + rows[i].getElementsByTagName('first_name')[0].innerHTML + '</td><td>'
+                        + rows[i].getElementsByTagName('phone_number')[0].innerHTML + '</td>';
+                }
+                document.getElementById('tbl').innerHTML = table;
+            }
+        }
+        xhtp.open('get', 'employees.xml', false);
+        xhtp.send();
+    </script>
+
+</body>
+
+</html>
