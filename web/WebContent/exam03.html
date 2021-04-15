@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <table id="tbl" border="1"></table>
+    <!-- <table id="tbl" border="1"></table>
     <script>
         let xhtp = new XMLHttpRequest();
         let rows;
@@ -28,7 +28,28 @@
         }
         xhtp.open('get', 'employees.xml', false);
         xhtp.send();
+    </script> -->
+    <script>
+        let xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function() {
+            if(xhtp.readyState == 4 && xhtp.status == 200) {
+                let data = xhtp.responseXML;
+                let rec = data.getElementsByTagName('record');
+                let list = '<h2>Employee List</h2>';
+                for(let i=0; i<rec.length; i++) {
+                    list +='<ul><li>' + rec[i].getElementsByTagName('emp_id')[0].innerHTML
+                            +'</li><li>' + rec[i].getElementsByTagName('first_name')[0].innerHTML
+                            +'</li><li>' + rec[i].getElementsByTagName('phone_number')[0].innerHTML
+                            +'</li></ul>';
+                }
+                document.getElementsByTagName('body')[0].innerHTML = list;
+            }
+        }
+        xhtp.open('get','employees.xml',false);
+        xhtp.send();
+
     </script>
+
 
 </body>
 
